@@ -131,9 +131,19 @@ label {
     color: #6d170f;
 }
 
+.input-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
 input,
 select {
+    display: block;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     height: 54px;
     padding: 0 15px;
     border: 1px solid var(--input-border);
@@ -145,10 +155,38 @@ select {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+input {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #6d170f 50%),
+        linear-gradient(135deg, #6d170f 50%, transparent 50%);
+    background-position:
+        calc(100% - 22px) calc(50% - 3px),
+        calc(100% - 15px) calc(50% - 3px);
+    background-size: 7px 7px, 7px 7px;
+    background-repeat: no-repeat;
+    padding-right: 42px;
+}
+
 input:focus,
 select:focus {
     border-color: #c99600;
     box-shadow: 0 0 0 4px rgba(255, 212, 0, 0.18);
+}
+
+input::-webkit-date-and-time-value {
+    text-align: left;
+}
+
+input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.9;
 }
 
 .button-row {
@@ -230,7 +268,6 @@ button:active {
     color: rgba(109, 23, 15, 0.72);
 }
 
-/* Tablet / small laptop */
 @media (max-width: 768px) {
     .page {
         padding: 18px;
@@ -259,7 +296,6 @@ button:active {
     }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
     .page {
         padding: 12px;
@@ -316,11 +352,24 @@ button:active {
         margin-bottom: 6px;
     }
 
+    .input-wrap {
+        border-radius: 14px;
+    }
+
     input,
     select {
         height: 50px;
         font-size: 16px;
         border-radius: 14px;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    select {
+        padding-right: 40px;
+        background-position:
+            calc(100% - 20px) calc(50% - 3px),
+            calc(100% - 13px) calc(50% - 3px);
     }
 
     .button-row {
