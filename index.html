@@ -1,118 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Date Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #f4f4f4;
-        }
+    <title>Golden Snack Date Calculator</title>
 
-        .box {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon" href="./gs-logo-square.png" />
 
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
-        }
-
-        input,
-        select,
-        button {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        button {
-            cursor: pointer;
-            border: none;
-            background: #222;
-            color: white;
-            border-radius: 8px;
-        }
-
-        .result {
-            margin-top: 20px;
-            padding: 15px;
-            background: #e9f5e9;
-            border-radius: 8px;
-            font-size: 18px;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-    <div class="box">
-        <h1>Date Calculator</h1>
+    <main class="page">
+        <section class="card">
+            <div class="brand">
+                <img src="./gs-logo-square.png" alt="Golden Snack logo" class="brand-logo" />
 
-        <label for="date">Select a date:</label>
-        <input type="date" id="date" />
+                <div class="brand-text">
+                    <p class="brand-name">Golden Snack</p>
+                    <p class="brand-subname">Date Calculator</p>
+                </div>
+            </div>
 
-        <label for="days">Select number of days:</label>
-        <select id="days">
-            <option value="73">73 days Bio</option>
-            <option value="61">61 days Little</option>
-            <option value="68">68 days 9 mounts</option>
-            <option value="91">91 days 12 mounts</option>
-        </select>
+            <h1>Výpočet data</h1>
+            <p class="subtitle">
+                Vyber datum výroby a typ příjmu nebo výdeje zboží
+            </p>
 
-        <label for="action">Choose action:</label>
-        <select id="action">
-            <option value="add">Add days</option>
-            <option value="subtract">Subtract days</option>
-        </select>
+            <div class="field">
+                <label for="date">Datum výroby</label>
+                <input type="date" id="date" />
+            </div>
 
-        <button id="calcBtn">Calculate</button>
+            <div class="field">
+                <label for="days">Výber příjmu / výdeje zboží</label>
+                <select id="days">
+                    <option value="73">Biosaurus příjem</option>
+                    <option value="61">Little Angels příjem</option>
+                    <option value="91">Biosaurus výdej ze skladu</option>
+                    <option value="68">Little Angels výdej ze skladu</option>
+                    <option value="44">Výdej zboží GS se zárukou 6 měsíců</option>
+                    <option value="52">Výdej zboží GS se zárukou 7 měsíců</option>
+                </select>
+            </div>
 
-        <div class="result" id="result">Your result will appear here.</div>
-    </div>
+            <div class="button-row">
+                <button id="calcBtn" type="button">Vypočítat datum</button>
+                <button id="resetBtn" type="button" class="reset-btn">Reset</button>
+            </div>
 
-    <script>
-        const dateInput = document.getElementById('date');
-        const daysSelect = document.getElementById('days');
-        const actionSelect = document.getElementById('action');
-        const calcBtn = document.getElementById('calcBtn');
-        const result = document.getElementById('result');
+            <div class="result">
+                <span class="result-label">Výsledek</span>
+                <span class="result-value" id="resultValue">Výsledek se zobrazí zde</span>
+            </div>
 
-        calcBtn.addEventListener('click', () => {
-            if (!dateInput.value) {
-                result.textContent = 'Please select a date.';
-                return;
-            }
+            <p class="footer-text">by Golden Snack</p>
+        </section>
+    </main>
 
-            const selectedDate = new Date(dateInput.value);
-            const days = Number(daysSelect.value);
-
-            if (actionSelect.value === 'add') {
-                selectedDate.setDate(selectedDate.getDate() + days);
-            } else {
-                selectedDate.setDate(selectedDate.getDate() - days);
-            }
-
-            const formattedDate = selectedDate.toLocaleDateString('en-GB');
-
-            result.textContent = `Result: ${formattedDate}`;
-        });
-    </script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
