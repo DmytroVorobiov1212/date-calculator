@@ -9,9 +9,8 @@
 
     --gold-1: #ffd400;
     --gold-2: #ffbf00;
-    --gold-3: #f5b400;
 
-    --card-bg: rgba(255, 248, 235, 0.96);
+    --card-bg: rgba(255, 248, 235, 0.97);
     --card-border: rgba(255, 212, 0, 0.22);
 
     --text-main: #2f2410;
@@ -23,8 +22,8 @@
 
     --result-bg: linear-gradient(135deg, #fff1b0 0%, #ffd54a 100%);
 
-    --shadow-main: 0 24px 60px rgba(55, 0, 0, 0.28);
-    --shadow-btn: 0 14px 30px rgba(185, 19, 25, 0.28);
+    --shadow-main: 0 24px 60px rgba(55, 0, 0, 0.24);
+    --shadow-btn: 0 12px 24px rgba(185, 19, 25, 0.22);
 }
 
 html,
@@ -38,6 +37,7 @@ body {
 
 body {
     min-height: 100vh;
+    min-height: 100dvh;
     background:
         radial-gradient(circle at top left, rgba(255, 212, 0, 0.16), transparent 28%),
         radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.1), transparent 25%),
@@ -46,6 +46,7 @@ body {
 
 .page {
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +69,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 14px;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 }
 
 .brand-logo {
@@ -79,7 +80,7 @@ body {
     display: block;
     background: #c81c22;
     border: 2px solid rgba(255, 212, 0, 0.35);
-    box-shadow: 0 12px 26px rgba(185, 19, 25, 0.28);
+    box-shadow: 0 12px 26px rgba(185, 19, 25, 0.24);
 }
 
 .brand-text {
@@ -106,16 +107,16 @@ h1 {
     margin: 0;
     text-align: center;
     font-size: 30px;
-    line-height: 1.2;
+    line-height: 1.15;
     color: #971319;
 }
 
 .subtitle {
-    margin: 10px 0 26px;
+    margin: 10px 0 24px;
     text-align: center;
     color: var(--text-soft);
     font-size: 15px;
-    line-height: 1.5;
+    line-height: 1.45;
 }
 
 .field {
@@ -152,7 +153,7 @@ select:focus {
 
 .button-row {
     display: grid;
-    grid-template-columns: 1fr 140px;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
     margin-top: 6px;
 }
@@ -188,8 +189,8 @@ button:active {
 }
 
 .result {
-    margin-top: 20px;
-    padding: 18px 16px;
+    margin-top: 18px;
+    padding: 16px 14px;
     border-radius: 18px;
     background: var(--result-bg);
     border: 1px solid rgba(255, 191, 0, 0.22);
@@ -198,7 +199,7 @@ button:active {
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    min-height: 92px;
+    min-height: 88px;
     justify-content: center;
     text-align: center;
 }
@@ -216,10 +217,11 @@ button:active {
     font-weight: 700;
     color: #633f00;
     line-height: 1.3;
+    word-break: break-word;
 }
 
 .footer-text {
-    margin: 16px 0 0;
+    margin: 14px 0 0;
     text-align: center;
     font-size: 12px;
     font-weight: 700;
@@ -228,23 +230,15 @@ button:active {
     color: rgba(109, 23, 15, 0.72);
 }
 
-@media (max-width: 600px) {
+/* Tablet / small laptop */
+@media (max-width: 768px) {
     .page {
-        padding: 16px;
+        padding: 18px;
     }
 
     .card {
-        padding: 22px 18px 18px;
+        padding: 24px 20px 18px;
         border-radius: 24px;
-    }
-
-    .brand {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .brand-text {
-        text-align: center;
     }
 
     .brand-logo {
@@ -252,12 +246,8 @@ button:active {
         height: 68px;
     }
 
-    .button-row {
-        grid-template-columns: 1fr;
-    }
-
     h1 {
-        font-size: 26px;
+        font-size: 27px;
     }
 
     .subtitle {
@@ -266,5 +256,109 @@ button:active {
 
     .result-value {
         font-size: 19px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .page {
+        padding: 12px;
+        align-items: flex-start;
+    }
+
+    .card {
+        margin-top: 14px;
+        padding: 18px 14px 16px;
+        border-radius: 22px;
+    }
+
+    .brand {
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .brand-text {
+        text-align: center;
+    }
+
+    .brand-logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+    }
+
+    .brand-name {
+        font-size: 17px;
+    }
+
+    .brand-subname {
+        font-size: 12px;
+        letter-spacing: 0.9px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        margin: 8px 0 18px;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .field {
+        margin-bottom: 14px;
+    }
+
+    label {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    input,
+    select {
+        height: 50px;
+        font-size: 16px;
+        border-radius: 14px;
+    }
+
+    .button-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    button {
+        height: 50px;
+        font-size: 15px;
+        border-radius: 14px;
+    }
+
+    .result {
+        margin-top: 16px;
+        min-height: 80px;
+        padding: 14px 12px;
+        border-radius: 16px;
+    }
+
+    .result-label {
+        font-size: 12px;
+    }
+
+    .result-value {
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .footer-text {
+        margin-top: 12px;
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 360px) {
+    .button-row {
+        grid-template-columns: 1fr;
     }
 }
